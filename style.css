@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  background: linear-gradient(120deg, #a2d9ff, #e0f7fa);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+#typewriter-text,
+#random-typewriter-text {
+  display: inline;
+  border-right: 2px solid black;
+  animation: blink-cursor 0.7s step-end infinite;
+  font-size: calc(16px + 0.5vw);
+}
+
+.gif-container {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.gif-container .tenor-gif-embed {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: calc(16px + 0.3vw);
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #e1e1e1;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.button-container.fade-in {
+  opacity: 1;
+}
+
+.button-column,
+a {
+  text-decoration: none;
+}
+
+@keyframes blink-cursor {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+/* Efecto de lluvia */
+.rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.rain-drop {
+  position: absolute;
+  top: -10px;
+  width: 3px;
+  height: 15px;
+  background: rgba(6, 157, 251, 0.8);
+  animation: rain 0.5s linear infinite;
+}
+
+.rain-drop:nth-child(odd) {
+  width: 2px;
+  height: 12px;
+  animation-duration: 0.6s;
+}
+
+.rain-drop:nth-child(even) {
+  width: 3px;
+  height: 15px;
+  animation-duration: 0.4s;
+}
+
+@keyframes rain {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}

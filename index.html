@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgive me</title>
+  <link rel="icon" href="/img/perdon.png" sizes="32x32" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="typewriter-text"></div>
+    <div class="gif-container">
+      <div class="tenor-gif-embed" data-postid="781294852949082992" data-share-method="host" data-aspect-ratio="1"
+        data-width="100%"><a href="https://tenor.com/view/hug-me-im-sad-sad-girl-gif-781294852949082992">Hug Me Im Sad
+          GIF</a>from <a href="https://tenor.com/search/hug+me-gifs">Hug Me GIFs</a></div>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  </div>
+  <p id="random-typewriter-text"></p>
+  <div class="button-container">
+    <div class="button-column">
+      <a href="./pages/yes.html">
+        <button id="yes-btn">Sí</button>
+      </a>
+      <button id="no-btn" onmouseover="moveButton()">No</button>
+    </div>
+  </div>
+
+  <div class="rain" id="rain-effect"></div>
+  <script src="main.js" defer></script>
+  <script>
+    const text = "Nada justifica cómo reaccioné y me comporté contigo, pero quiero saber si ...";
+    const randomText = "¿Podemos hablar? 🥺";
+    let i = 0;
+    let j = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 110);
+      } else {
+        setTimeout(randomTypeWriter, 500);
+      }
+    }
+
+    function randomTypeWriter() {
+      if (j < randomText.length) {
+        document.getElementById("random-typewriter-text").innerHTML += randomText.charAt(j);
+        j++;
+        setTimeout(randomTypeWriter, Math.floor(Math.random() * 200) + 50);
+      } else {
+        setTimeout(() => {
+          document.querySelector(".button-container").classList.add("fade-in");
+        }, 500);
+      }
+    }
+
+    // Crear gotas de lluvia
+    function createRain() {
+      const rainContainer = document.getElementById('rain-effect');
+      for (let i = 0; i < 100; i++) {
+        const drop = document.createElement('div');
+        drop.classList.add('rain-drop');
+        drop.style.left = Math.random() * 100 + 'vw';
+        drop.style.animationDelay = Math.random() * 2 + 's';
+        rainContainer.appendChild(drop);
+      }
+    }
+
+    window.onload = function () {
+      typeWriter();
+      createRain();
+    };
+  </script>
+</body>
+
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgive me</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="typewriter-text"></div>
+    <div class="gif-container">
+      <div class="tenor-gif-embed" data-postid="781294852949082992" data-share-method="host" data-aspect-ratio="1"
+        data-width="100%"><a href="https://tenor.com/view/hug-me-im-sad-sad-girl-gif-781294852949082992">Hug Me Im Sad
+          GIF</a>from <a href="https://tenor.com/search/hug+me-gifs">Hug Me GIFs</a></div>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  </div>
+  <p id="random-typewriter-text"></p>
+  <div class="button-container">
+    <div class="button-column">
+      <a href="./pages/yes.html">
+        <button id="yes-btn">Sí</button>
+      </a>
+      <button id="no-btn" onmouseover="moveButton()">No</button>
+    </div>
+  </div>
+
+  <canvas id="canvas-club"></canvas>
+
+  <script src="main.js" defer></script>
+</body>
+
+</html> -->
